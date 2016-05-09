@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Test</title>
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" media="all" href="vendors/bootstrap/bootstrap.css">
+    <link rel="stylesheet" media="all" href="vendors/bootstrap/paper.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+          <h1>JWT Generator <small>Retrieve Claim and generate JWT for MFS API </small></h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="url" class="col-sm-2 control-label">MFS Url</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="url" name="url" placeholder="MFS Url">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="apiclientsecret" class="col-sm-2 control-label">APIClientSecret</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="apiclientsecret" name="apiclientsecret" placeholder="APIClientSecret">
+                      <small>5c46f1e55a6f9cf8ab9a982</small>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button id="getclaim" class="btn btn-default">Get Claim</button>
+                      
+                    </div>
+
+                  </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">Header</div>
+                  <div class="panel-body">
+                    <pre id="header"></pre>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-success">
+                  <div class="panel-heading">Claim</div>
+                  <div class="panel-body">
+                    <pre id="claim"></pre>
+                  </div>
+                </div>
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-md-6" style="margin-bottom: 15px;">
+                <button id="genjwt" class="btn btn-default">Generate JWT</button>
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-info">
+                  <div class="panel-heading">JWT</div>
+                  <div class="panel-body">
+                    <pre id="jwt" style="white-space: pre-wrap;"></pre>
+                  </div>
+                </div>
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-md-10">
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="vsecret" class="col-sm-2 control-label">Verifying Secret</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="vsecret" name="vsecret" placeholder="MFS Url">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-2">
+                      <button id="verifyjwt" class="btn btn-default">Verify JWT</button>
+                    </div>
+                    <div class="col-sm-4">
+                      <span id="valid"></span>
+                    </div>
+                  </div>
+                </form>
+            </div>
+            
+        </div>          
+    </div>
+
+    
+    <script src="vendors/jquery-2.2.3.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/moment.min.js"></script>
+    <script src="vendors/jsrsasign.js"></script>
+    <script src="mfsjwtlib.browser.js"></script>
+    <script>
+        $(function(){
+            var mfsurl = window.localStorage.jwtgen_mfsurl;
+            var apiclaimpath = "/api/claim?format=json";
+            var apiclientsecret = window.localStorage.jwtgen_secret;
+            var claim = JSON.parse(window.localStorage.jwtgen_claim || "{}");
+            var header = JSON.parse(window.localStorage.jwtgen_header || "{}");
+            var jwt = window.localStorage.jwtgen_jwt;
+
+            var init = function(){
+                if(mfsurl){ $('#url').val(mfsurl); };
+                if(apiclientsecret){ $('#apiclientsecret').val(apiclientsecret); };
+                if(claim){ $('#claim').text(JSON.stringify(claim,null,2)); };
+                if(header){ $('#header').text(JSON.stringify(header,null,2)); };
+                if(jwt){ $('#jwt').text(jwt); };
+            }
+            $('#getclaim').on('click',function(e){
+                e.preventDefault();
+                mfsurl = $('#url').val() || "";
+                if(mfsurl.endsWith('/')){
+                    mfsurl.substring(0,mfsurl.length - 1);
+                }
+                window.localStorage.jwtgen_mfsurl = mfsurl;
+                if(mfsurl){
+                    window.getClaim({claimurl:mfsurl + apiclaimpath}, function(err,resp){
+                        if(resp){
+                            claim = resp.claim;
+                            header = resp.header;
+                            window.localStorage.jwtgen_claim = JSON.stringify(resp.claim);
+                            window.localStorage.jwtgen_header = JSON.stringify(resp.header);
+                            $('#claim').text(JSON.stringify(resp.claim,null,2))
+                            $('#header').text(JSON.stringify(resp.header,null,2))
+                        }
+                       
+                    })
+                }
+            })
+            $('#genjwt').on('click',function(e){
+                e.preventDefault();
+                apiclientsecret = $('#apiclientsecret').val() || "";
+                window.localStorage.jwtgen_secret = apiclientsecret;
+                if(apiclientsecret){
+                    var opts = {claim: claim, header: header, secret: apiclientsecret}
+                    window.generateJWT(opts,function(err,jwtres){
+                        if(jwtres){
+                            jwt = jwtres;
+                            $('#jwt').text(jwt);
+                            window.localStorage.jwtgen_jwt = jwt;
+                        }
+                    })
+                }
+            })
+            $('#verifyjwt').on('click',function(e){
+                e.preventDefault();
+                var vsecret = $('#vsecret').val() || "";
+                if(vsecret){
+                    window.validateJWT({secret: vsecret, jwt: jwt}, function(err,isValid){
+                        if( isValid){
+                            $('#valid').html("Valid!!");
+                        }else{
+                            $('#valid').html("Invalid!!");
+                        }
+                    })
+                }
+            });
+
+            init();
+        })
+    </script>
+</body>
+
+</html>

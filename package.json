@@ -1,0 +1,17 @@
+{
+  "name": "mfsapi-generate-jwt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.0-rc.3",
+    "jsrsasign": "^5.0.10",
+    "lodash": "^4.11.2",
+    "moment": "^2.13.0"
+  }
+}
