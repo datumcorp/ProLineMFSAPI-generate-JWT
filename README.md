@@ -3,7 +3,7 @@ Javascipt code to generate JWT for use with Proline MFS Api. support for both no
 
 MFS Demo Server : http://mfs.datumcorp.com:1313
 
-Datum ClearMind Sdn Bhd.
+Datum ClearMind Sdn Bhd.<br/>
 Website: http://www.datumcorp.com/
 
 # ProLine MFS Portal API
@@ -17,7 +17,7 @@ A set of apis to retrieve Proline data thru MFS server
 Get list of Customers
 
 #### Sample URL
-http://192.168.10.163/api/Claim
+http://mfs.datumcorp.com:1313/api/Claim
 
 #### Headers
 none
@@ -82,7 +82,7 @@ Content-Type: application/json; charset=utf-8
 Get list of Customers
 
 #### Sample URL
-http://192.168.10.163/api/Customers
+http://mfs.datumcorp.com:1313/api/Customers
 
 #### Headers
 * jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
@@ -195,7 +195,7 @@ Content-Type: application/json; charset=utf-8
 Get Customer info by customer id
 
 #### Sample URL
-http://192.168.10.163/api/Customers/55
+http://mfs.datumcorp.com:1313/api/Customers/55
 
 #### Headers
 * jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
@@ -338,7 +338,7 @@ Content-Type: application/json; charset=utf-8
 Get list of Service Reports
 
 #### Sample URL
-http://192.168.10.163/api/Services
+http://mfs.datumcorp.com:1313/api/Services
 
 #### Headers
 * jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
@@ -467,7 +467,7 @@ Content-Type: application/json; charset=utf-8
 Get Service Report by id or SRNo
 
 #### Sample URL
-http://192.168.10.163/api/Services/55
+http://mfs.datumcorp.com:1313/api/Services/55
 
 #### Headers
 * jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
@@ -659,7 +659,7 @@ Content-Type: application/json; charset=utf-8
 Get Statement (outstanding balance) by customer id
 
 #### Sample URL
-http://192.168.10.163/api/Statement/55
+http://mfs.datumcorp.com:1313/api/Statement/55
 
 #### Headers
 * jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
@@ -854,72 +854,58 @@ Content-Type: application/json; charset=utf-8
 JWT is used for authenticating api requests. Below are sample javascript code to generate jwt from sa shared clientid and secret key
 
 ```javascript
-"use strict";
-
-var http = require("http")
-	,moment = require("moment")
-	, async = require("async")
-	, _ = require("lodash")
-	, jsrsasign = require("jsrsasign") 
-	;
-	
-var config = {
-	"claimUrl":"192.168.10.163",
-	"port": 3142,
-	"urlpath": "/api/claim?format=json",
-	"APIClientId": "ApiClientId",
-	"APIClientSecret": "MFSSelfHost"
-}
 (function(exports){
 
-   	var genJWT = function(callback){
-   		var getClaim = function(cb){
-   			return http.get({
-		        host: config.claimUrl,
-		        port: config.port,
-		        path: config.urlpath
-		    }, function(response) {
-		        // Continuously update stream with data
-		        var body = '';
-		        response.on('data', function(d) { body += d; });
-		        response.on('end', function() {
-
-		            // Data reception is done, do whatever with it!
-		            var parsed = JSON.parse(body);
-		            cb(null,{
-		                claim: parsed.claim,
-		                header: parsed.header
-		            });
-		        });
-		    });
-   		}
-
-   		async.waterfall([
-   			getClaim,
-   			function(args,cb){
-   				console.log("args:",args);
-   				var sClaim = JSON.stringify(args.claim);
-   				var sHeader = JSON.stringify(args.header);
-   				var key = config.APIClientSecret;
-   				var jwt = jsrsasign.jws.JWS.sign(null, sHeader, sClaim, key);
-   				cb(null,jwt)
-   			}
-		]
-		,function(err, result){
-			//console.log("result: ", result);
-			callback(err,result);
-		})
+	var getClaim = function(opts,cb){
+		var claimurl = opts.claimurl
+		$.get(claimurl)
+        .done(function(resp){
+            console.log("getclaim=>resp: ",resp);
+            cb(null,{claim: resp.claim, header: resp.header})
+        })
+        .fail(function(e){
+            console.log("getclaim=>Error: ",e);
+            cb(e)
+        })
+        .always(function(){console.log("getclaim=>always");})
+	}
+   	var genJWT = function(opts,callback){
+   		var sClaim = JSON.stringify(opts.claim);
+		var sHeader = JSON.stringify(opts.header);
+		var key = opts.secret;
+		var jwt = KJUR.jws.JWS.sign(null, sHeader, sClaim, key);
+		callback(null,jwt)
    	}
 
-   	exports.generateJWT = function(fn){
-        return genJWT(fn);
+   	var validateJWT = function(opts,cb){
+   		var secret = opts.secret;
+   		var jwt = opts.jwt;
+   		var isValid = false;
+		try {
+			isValid = KJUR.jws.JWS.verify(jwt, secret);
+		} catch (ex) {
+			//alert("Error: " + ex);
+			isValid = false;
+		}
+		cb(null,isValid);
+   	}
+
+
+
+   	exports.generateJWT = function(opts,fn){
+        return genJWT(opts,fn);
+    };
+    exports.getClaim = function(opts,fn){
+        return getClaim(opts,fn);
+    };
+    exports.validateJWT = function(opts,fn){
+        return validateJWT(opts,fn);
     };
 
-})(exports);
+})(window);
 
-var jwt = require("./mfsjwtlib")
-jwt.generateJWT(function(err,jwtresult){
-	console.log("jwtresult: ",jwtresult);
-});
+window.getClaim({claimurl:"http://mfs.datumcorp.com:1313/api/claim"}, function(err,resp){})
+var opts = {claim: claim, header: header, secret: apiclientsecret}
+window.generateJWT(opts,function(err,jwtres){})
 
 ```
