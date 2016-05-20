@@ -333,6 +333,98 @@ Content-Type: application/json; charset=utf-8
 
 ---
 
+### __POST /Customers/{id}__
+
+Get Statement (outstanding balance) by customer id
+
+#### Sample URL
+http://mfs.datumcorp.com:1313/api/Customers/55
+
+#### Headers
+* jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
+
+#### Url Params
+__Required__
+
+* id = 55 [integer] - customer id
+
+__Optional__
+
+none
+
+#### Data Params
+__Required__
+
+none
+
+__Optional__
+
+Include Property only if changes are to be made:
+
+* OPhone [string] - Office Phone, 
+* HPhone [string] - Home Phone
+* Mobile [string] - Mobile/Cellular No
+* Fax [string] - Fax No
+* Email [string] - Email address
+* Contact [string] - Contact person name
+* Add1 [string] - Address row 1
+* Add2 [string] - Address row 2
+* Add3 [string] - Address row 3
+* Add4 [string] - Address row 4
+* Add5 [string] - Address row 5
+* City [string] - City name
+* Zip [string] - Zip no or postcode
+    
+#### Request
+
+```http
+GET / HTTP/1.1
+Accept: application/json
+```
+
+#### Response
+
+__Success (200 OK)__
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "rowsaffected": 1,
+  "ok": true,
+  "source": {
+    "app": "MFSSelfHost",
+    "version": "1.1.6.0"
+  }
+}
+```
+
+__Unauthorized (401)__
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "ok": false,
+    "ErrorMsg":"Unauthorized. Check APIClientId and/or APIClientSecret",
+    "ErrorCode": 401
+}
+```
+
+__Bad Request (400)__
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=utf-8
+
+{
+    "ok": false,
+    "ErrorMsg":"Bad Request. Check supplied id is valid",
+    "ErrorCode": 400
+}
+```
+
+---
+
 ### __GET /Services__
 
 Get list of Service Reports
@@ -846,6 +938,10 @@ Content-Type: application/json; charset=utf-8
     "ErrorCode": 400
 }
 ```
+
+
+
+----
 
 # Appendix A
 
