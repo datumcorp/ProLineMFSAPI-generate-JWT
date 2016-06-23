@@ -10,6 +10,8 @@ Website: http://www.datumcorp.com/
 
 A set of apis to retrieve Proline data thru MFS server
 
+__Warning: These api calls are to be use for server to server only. Using the calls in browser environment can be a security risk__
+
 ---
 
 ### __GET /Claim__
@@ -85,7 +87,7 @@ Get list of Customers
 http://mfs.datumcorp.com:1313/api/Customers
 
 #### Headers
-* jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
+* jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
 __Required__
@@ -198,7 +200,7 @@ Get Customer info by customer id
 http://mfs.datumcorp.com:1313/api/Customers/55
 
 #### Headers
-* jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
+* jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
 __Required__
@@ -341,7 +343,7 @@ Update Customers details
 http://mfs.datumcorp.com:1313/api/Customers/55
 
 #### Headers
-* jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
+* jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
 __Required__
@@ -433,7 +435,7 @@ Get list of Service Reports
 http://mfs.datumcorp.com:1313/api/Services
 
 #### Headers
-* jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
+* jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
 __Required__
@@ -562,7 +564,7 @@ Get Service Report by id or SRNo
 http://mfs.datumcorp.com:1313/api/Services/55
 
 #### Headers
-* jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
+* jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
 __Required__
@@ -754,7 +756,7 @@ Get Statement (outstanding balance) by customer id
 http://mfs.datumcorp.com:1313/api/Statement/55
 
 #### Headers
-* jwt = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ" [string] (Refer to end of document for method to generate jwt)
+* jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
 __Required__
@@ -949,63 +951,9 @@ Content-Type: application/json; charset=utf-8
 
 JWT is used for authenticating api requests. Below are sample javascript code to generate jwt from sa shared clientid and secret key
 
-### browser
-
-```javascript
-(function(exports){
-
-	var getClaim = function(opts,cb){
-		var claimurl = opts.claimurl
-		$.get(claimurl)
-        .done(function(resp){
-            console.log("getclaim=>resp: ",resp);
-            cb(null,{claim: resp.claim, header: resp.header})
-        })
-        .fail(function(e){
-            console.log("getclaim=>Error: ",e);
-            cb(e)
-        })
-        .always(function(){console.log("getclaim=>always");})
-	}
-   	var genJWT = function(opts,callback){
-   		var sClaim = JSON.stringify(opts.claim);
-		var sHeader = JSON.stringify(opts.header);
-		var key = opts.secret;
-		var jwt = KJUR.jws.JWS.sign(null, sHeader, sClaim, key);
-		callback(null,jwt)
-   	}
-
-   	var validateJWT = function(opts,cb){
-   		var secret = opts.secret;
-   		var jwt = opts.jwt;
-   		var isValid = false;
-		try {
-			isValid = KJUR.jws.JWS.verify(jwt, secret);
-		} catch (ex) {
-			//alert("Error: " + ex);
-			isValid = false;
-		}
-		cb(null,isValid);
-   	}
-
-
-
-   	exports.generateJWT = function(opts,fn){
-        return genJWT(opts,fn);
-    };
-    exports.getClaim = function(opts,fn){
-        return getClaim(opts,fn);
-    };
-    exports.validateJWT = function(opts,fn){
-        return validateJWT(opts,fn);
-    };
-
-})(window);
-
-window.getClaim({claimurl:"http://mfs.datumcorp.com:1313/api/claim"}, function(err,resp){})
-var opts = {claim: claim, header: header, secret: apiclientsecret}
-window.generateJWT(opts,function(err,jwtres){})
-
+sample jwt:
+```
+eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNRlNTZWxmSG9zdF8xLjEuMi4wIiwic3ViIjoiTUZTU2VydmljZSBQb3J0YWwgQVBJIiwibmJmIjoxNDYyNDY0NTk1LCJleHAiOjE0NjUxNDI5OTUsImlhdCI6MTQ2MjQ2NDU5NSwiY2lkIjoiQXBpQ2xpZW50SWQifQ.LiYyz9ktdViEODzwFb3eMeay8-nMGIKpVL7rBSxcb9AQ7gYXtTbACsH45P-irngto2otc6uOdzPE94ZUMkKtJQ
 ```
 
 ### nodejs
