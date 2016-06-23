@@ -335,7 +335,7 @@ Content-Type: application/json; charset=utf-8
 
 ### __POST /Customers/{id}__
 
-Get Statement (outstanding balance) by customer id
+Update Customers details
 
 #### Sample URL
 http://mfs.datumcorp.com:1313/api/Customers/55
@@ -949,6 +949,8 @@ Content-Type: application/json; charset=utf-8
 
 JWT is used for authenticating api requests. Below are sample javascript code to generate jwt from sa shared clientid and secret key
 
+### browser
+
 ```javascript
 (function(exports){
 
@@ -1003,5 +1005,78 @@ JWT is used for authenticating api requests. Below are sample javascript code to
 window.getClaim({claimurl:"http://mfs.datumcorp.com:1313/api/claim"}, function(err,resp){})
 var opts = {claim: claim, header: header, secret: apiclientsecret}
 window.generateJWT(opts,function(err,jwtres){})
+
+```
+
+### nodejs
+
+```javascript
+"use strict";
+
+var http = require("http")
+	,moment = require("moment")
+	, async = require("async")
+	, _ = require("lodash")
+	, jsrsasign = require("jsrsasign") 
+	;
+	
+var config = {
+	"claimUrl":"192.168.10.163",
+	"port": 3142,
+	"urlpath": "/api/claim?format=json",
+	"APIClientId": "ApiClientId",
+	"APIClientSecret": "MFSSelfHost"
+}
+(function(exports){
+
+   	var genJWT = function(callback){
+   		var getClaim = function(cb){
+   			return http.get({
+		        host: config.claimUrl,
+		        port: config.port,
+		        path: config.urlpath
+		    }, function(response) {
+		        // Continuously update stream with data
+		        var body = '';
+		        response.on('data', function(d) { body += d; });
+		        response.on('end', function() {
+
+		            // Data reception is done, do whatever with it!
+		            var parsed = JSON.parse(body);
+		            cb(null,{
+		                claim: parsed.claim,
+		                header: parsed.header
+		            });
+		        });
+		    });
+   		}
+
+   		async.waterfall([
+   			getClaim,
+   			function(args,cb){
+   				console.log("args:",args);
+   				var sClaim = JSON.stringify(args.claim);
+   				var sHeader = JSON.stringify(args.header);
+   				var key = config.APIClientSecret;
+   				var jwt = jsrsasign.jws.JWS.sign(null, sHeader, sClaim, key);
+   				cb(null,jwt)
+   			}
+		]
+		,function(err, result){
+			//console.log("result: ", result);
+			callback(err,result);
+		})
+   	}
+
+   	exports.generateJWT = function(fn){
+        return genJWT(fn);
+    };
+
+})(exports);
+
+var jwt = require("./mfsjwtlib")
+jwt.generateJWT(function(err,jwtresult){
+	console.log("jwtresult: ",jwtresult);
+});
 
 ```
