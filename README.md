@@ -442,7 +442,7 @@ http://mfs.datumcorp.com:1313/api/Services
 #### Url Params
 __Required__
 
-none
+* custid = 120 [integer] - customer id, filter by customer
 
 __Optional__
 
