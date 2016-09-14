@@ -211,7 +211,7 @@ id = 55 [integer]
 
 __Optional__
 
-none
+* format=json [string] - format of response, can be json,xml, jsv, csv
 
 #### Data Params
 __Required__
@@ -354,7 +354,7 @@ __Required__
 
 __Optional__
 
-none
+* format=json [string] - format of response, can be json,xml, jsv, csv
 
 #### Data Params
 __Required__
@@ -423,6 +423,129 @@ Content-Type: application/json; charset=utf-8
 {
     "ok": false,
     "ErrorMsg":"Bad Request. Check supplied id is valid",
+    "ErrorCode": 400
+}
+```
+
+---
+
+### __GET /Schedules/{id}__
+
+Get list of Schedules
+
+#### Sample URL
+http://mfs.datumcorp.com:1313/api/Schedules/760
+
+#### Headers
+* jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
+
+#### Url Params
+__Required__
+
+* id = 120 [integer] - customer id
+
+__Optional__
+
+* type = week [string,default="week"] - type of list to return
+  * week - schedules from now to 1 week from now
+  * month - schedules from now to 1 month from now
+  * recent - schedules for the last 1 week
+* format=json [string] - format of response, can be json,xml, jsv, csv
+
+#### Data Params
+__Required__
+
+none
+
+__Optional__
+
+none
+    
+#### Request
+
+```http
+GET / HTTP/1.1
+Accept: application/json
+```
+
+#### Response
+
+__Success (200 OK)__
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "data": [
+    {
+      "ID": 2359,
+      "CLDID": 10,
+      "StartDate": "1899-12-30T00:00:00.0000000+08:00",
+      "Duration": 30,
+      "G207": 20701,
+      "NatureOfService": "Routine Inspection/Checking",
+      "G208": 20800,
+      "WorkType": "Day Work",
+      "OPV": 25,
+      "LPV": 25,
+      "Remarks": "Please don't enter the room without permission",
+      "ScheduleDate": "2016-09-14T09:00:00.0000000+08:00",
+      "Billable": true,
+      "COD": false,
+      "SRNo": "",
+      "InternalNotes": "generated",
+      "Confirmed": false,
+      "ContactPerson": "",
+      "EndDate": "1900-01-01T00:00:00.0000000+08:00",
+      "StatusID": 19001,
+      "Status": "To Do",
+      "Comment": "generated",
+      "OldCSSID": 0,
+      "NextCSSID": 0,
+      "CMFID": 7,
+      "TSTFID": 0,
+      "SCC": "",
+      "AMFID": 760,
+      "AMLID": 43,
+      "G180": 0,
+      "Team": "",
+      "SetTitle": "Set #1",
+      "CustID": "760",
+      "CustName": "TechTech Sdn Bhd",
+      "G200": 20001,
+      "OrderType": "General Pest",
+      "OrderNo": "B1212-003-0"
+    },
+    ...
+  ],
+  "ok": true,
+  "source": {
+    "app": "MFSSelfHost",
+    "version": "1.1.3.0"
+  }
+}
+```
+
+__Unauthorized (401)__
+```http
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json; charset=utf-8
+
+{
+    "ok": false,
+    "ErrorMsg":"Unauthorized. Check APIClientId and/or APIClientSecret",
+    "ErrorCode": 401
+}
+```
+
+__Bad Request (400)__
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=utf-8
+
+{
+    "ok": false,
+    "ErrorMsg":"Bad Request. Check your parameters",
     "ErrorCode": 400
 }
 ```
@@ -835,7 +958,75 @@ Content-Type: application/json; charset=utf-8
     "ErrorCode": 400
 }
 ```
+---
 
+### __GET /sform/{id}__
+
+Get Service Report in pdf format
+#### Sample URL
+http://mfs.datumcorp.com:1313/sform/55
+
+#### Headers
+* jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
+
+#### Url Params
+__Required__
+
+* id = 55 [integer] - service report id
+* type = 0 [integer] - type of download, 0 = pdf, 1 = png
+
+__Optional__
+
+none
+
+#### Data Params
+__Required__
+
+none
+
+__Optional__
+
+none
+    
+#### Request
+
+```http
+GET / HTTP/1.1
+Accept: application/json
+```
+
+#### Response
+
+__Success (200 OK)__
+```http
+HTTP/1.1 200 OK
+Content-Type: application/pdf
+
+```
+
+__Unauthorized (401)__
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "ok": false,
+    "ErrorMsg":"Unauthorized. Check APIClientId and/or APIClientSecret",
+    "ErrorCode": 401
+}
+```
+
+__Bad Request (400)__
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=utf-8
+
+{
+    "ok": false,
+    "ErrorMsg":"Bad Request. Check supplied id and/or SRNo is valid",
+    "ErrorCode": 400
+}
+```
 ---
 
 ### __GET /Statement/{id}__
