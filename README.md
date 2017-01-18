@@ -1223,8 +1223,76 @@ Content-Type: application/json; charset=utf-8
 ```
 
 
-
 ----
+
+### __GET /Invoice/{id}__
+
+Get Invoice in pdf format
+
+#### Sample URL
+http://mfs.datumcorp.com:1313/api/Invoice/INV16-0004
+
+#### Headers
+* jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
+
+#### Url Params
+__Required__
+
+* id = INV16-0004 [string] - invoice document no.
+
+__Optional__
+
+* docid = 0 [integer] - type of invoice to print. Use to override default value only. refer to admin to get possible values for this.
+
+#### Data Params
+__Required__
+
+none
+
+__Optional__
+
+none
+    
+#### Request
+
+```http
+GET / HTTP/1.1
+Accept: application/json
+```
+
+#### Response
+
+__Success (200 OK)__
+```http
+HTTP/1.1 200 OK
+Content-Type: application/pdf
+
+```
+
+__Unauthorized (401)__
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "ok": false,
+    "ErrorMsg":"Unauthorized. Check APIClientId and/or APIClientSecret",
+    "ErrorCode": 401
+}
+```
+
+__Bad Request (400)__
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=utf-8
+
+{
+    "ok": false,
+    "ErrorMsg":"Bad Request. Check supplied id and/or SRNo is valid",
+    "ErrorCode": 400
+}
+```
+---
 
 # Appendix A
 
