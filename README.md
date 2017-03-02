@@ -14,11 +14,26 @@ Requires MFSSelfHost 1.1.9+
 
 __Warning: These api calls are to be use for server to server only. Using the calls in browser environment can be a security risk__
 
+## Table of Contents
+
+* [APIs](#proline-mfs-portal-api)
+  - [GET /Claim](#get-claim)
+  - [GET /Customers](#get-customers)
+  - [GET /Customers/{id}](#get-customersid)
+  - [POST /Customers/{id}](#post-customersid)
+  - [GET /Schedules/{id}](#get-schedulesid)
+  - [GET /Services](#get-services)
+  - [GET /Services/{id}](#get-servicesid)
+  - [GET /sform/{id}](#get-sformid)
+  - [GET /Statement/{id}](#get-statementid)
+  - [GET /Invoice/{id}](#get-invoiceid)
+* [Appendix A](#appendix-a)
+
 ---
 
 ### __GET /Claim__
 
-Get list of Customers
+Get claim to be used in jwt generation
 
 #### Sample URL
 http://mfs.datumcorp.com:1313/api/Claim
@@ -58,26 +73,10 @@ __Success (200 OK)__
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{
-  "claim": {
-    "iss": "MFSSelfHost_1.1.3.0",
-    "sub": "MFSService Portal API",
-    "nbf": 1462546362,
-    "exp": 1465224762,
-    "iat": 1462546362,
-    "cid": "ApiClientId"
-  },
-  "header": {
-    "alg": "HS512",
-    "typ": "JWT"
-  },
-  "ok": true,
-  "source": {
-    "app": "MFSSelfHost",
-    "version": "1.1.3.0"
-  }
-}
+
 ```
+
+[Sample /Claim Response data](/sampledata/GET_Claim.json)
 
 ---
 
@@ -130,43 +129,10 @@ __Success (200 OK)__
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{
-  "data": [
-    {
-      "ID": 760,
-      "AccNo": "CUS11-00003",
-      "Status": "ACTIVE",
-      "Name": "TechTech Sdn Bhd",
-      "OfficeTelNo": "4233 2222",
-      "HomeTelNo": "",
-      "MobileTelNo": "",
-      "Fax": "4233 3333",
-      "Email": "techtech@example.com,tech2@example.com",
-      "ContactPerson": "Techi",
-      "Add1": "3, Jalan Taman Taman 4,",
-      "Add2": "Kampung Atas Tol,",
-      "Add3": "Kuala Terengganu,",
-      "Add4": "",
-      "Add5": "",
-      "ContactCategory": "Customer",
-      "G30": 301,
-      "ContactClass": "Company",
-      "G31": 311,
-      "OGID": 0,
-      "OG": "All",
-      "State": "Terengganu",
-      "Zip": "21070",
-      "Country": ""
-    },
-    ...
-  ],
-  "ok": true,
-  "source": {
-    "app": "MFSSelfHost",
-    "version": "1.1.3.0"
-  }
-}
+
 ```
+
+[Sample /Customers Successful Response data](/sampledata/GET_Customers.json)
 
 __Unauthorized (401)__
 ```http
@@ -236,80 +202,9 @@ __Success (200 OK)__
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{
-  "data": {
-    "ID": 760,
-    "AccNo": "CUS11-00003",
-    "Status": "ACTIVE",
-    "Name": "TechTech Sdn Bhd",
-    "RegDate": "2011-01-01T00:00:00.0000000+08:00",
-    "InputDate": "2016-03-17T12:38:46.0630000+08:00",
-    "UpdateDate": "2016-03-17T12:38:46.0630000+08:00",
-    "OfficeTelNo": "4233 2222",
-    "HomeTelNo": "",
-    "MobileTelNo": "",
-    "Fax": "4233 3333",
-    "Email": "techtech@example.com,tech2@example.com",
-    "ContactPerson": "Techi",
-    "Add1": "3, Jalan Taman Taman 4,",
-    "Add2": "Kampung Atas Tol,",
-    "Add3": "Kuala Terengganu,",
-    "Add4": "",
-    "Add5": "",
-    "ContactCategory": "Customer",
-    "G30": 301,
-    "ContactClass": "Company",
-    "G31": 311,
-    "CurrencyCode": "MYR",
-    "Currency": "Malaysian Ringgit",
-    "OGID": 0,
-    "OG": "All",
-    "State": "Terengganu",
-    "Zip": "21070",
-    "Country": "",
-    "BillingID": 43,
-    "Code": "",
-    "Website": "",
-    "TaxNo": "",
-    "Qualifications": "",
-    "SubContacts": [
-      {
-        "ID": 43,
-        "ACCID": 760,
-        "IsBillingAddress": true,
-        "Status": "DISABLED",
-        "InputDate": "2016-04-06T10:14:22.8830000+08:00",
-        "UpdateDate": "2016-04-06T10:14:22.8830000+08:00",
-        "OfficeTelNo": "4233 2222",
-        "HomeTelNo": "",
-        "MobileTelNo": "",
-        "Fax": "4233 3333",
-        "Email": "techtech@example.com,tech2@example.com",
-        "ContactPerson": "Techi",
-        "Add1": "3, Jalan Taman Taman 4,",
-        "Add2": "Kampung Atas Tol,",
-        "Add3": "Kuala Terengganu,",
-        "Add4": "",
-        "Add5": "",
-        "State": "Terengganu",
-        "Zip": "21070",
-        "Country": "",
-        "Zone": "Atas Tol",
-        "PremiseType": "Others",
-        "Salutation": "Mr.",
-        "Position": "",
-        "Code": "",
-        "Website": ""
-      }
-    ]
-  },
-  "ok": true,
-  "source": {
-    "app": "MFSSelfHost",
-    "version": "1.1.3.0"
-  }
-}
 ```
+
+[Sample /Customers/{id} Successful Response data](/sampledata/GET_Customers_id.json)
 
 __Unauthorized (401)__
 ```http
@@ -475,56 +370,9 @@ __Success (200 OK)__
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{
-  "data": [
-    {
-      "ID": 2359,
-      "CLDID": 10,
-      "StartDate": "1899-12-30T00:00:00.0000000+08:00",
-      "Duration": 30,
-      "G207": 20701,
-      "NatureOfService": "Routine Inspection/Checking",
-      "G208": 20800,
-      "WorkType": "Day Work",
-      "OPV": 25,
-      "LPV": 25,
-      "Remarks": "Please don't enter the room without permission",
-      "ScheduleDate": "2016-09-14T09:00:00.0000000+08:00",
-      "Billable": true,
-      "COD": false,
-      "SRNo": "",
-      "InternalNotes": "generated",
-      "Confirmed": false,
-      "ContactPerson": "",
-      "EndDate": "1900-01-01T00:00:00.0000000+08:00",
-      "StatusID": 19001,
-      "Status": "To Do",
-      "Comment": "generated",
-      "OldCSSID": 0,
-      "NextCSSID": 0,
-      "CMFID": 7,
-      "TSTFID": 0,
-      "SCC": "",
-      "AMFID": 760,
-      "AMLID": 43,
-      "G180": 0,
-      "Team": "",
-      "SetTitle": "Set #1",
-      "CustID": "760",
-      "CustName": "TechTech Sdn Bhd",
-      "G200": 20001,
-      "OrderType": "General Pest",
-      "OrderNo": "B1212-003-0"
-    },
-    ...
-  ],
-  "ok": true,
-  "source": {
-    "app": "MFSSelfHost",
-    "version": "1.1.3.0"
-  }
-}
 ```
+
+[Sample /Schedules/{id} Successful Response data](/sampledata/GET_Schedules_id.json)
 
 __Unauthorized (401)__
 ```http
@@ -600,60 +448,9 @@ __Success (200 OK)__
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{
-  "data": [
-    {
-      "ID": "118",
-      "TrxDT": "2013-03-15T00:00:00.0000000+08:00",
-      "SRNo": "13030030",
-      "CustID": "760",
-      "CustName": "TechTech Sdn Bhd",
-      "Add1": "3, Jalan Taman Taman 4,",
-      "Add2": "Kepong Industri Park,",
-      "Add3": "Kepong,",
-      "Add4": "",
-      "Add5": "",
-      "State": "Selangor",
-      "Zip": 0,
-      "Country": "",
-      "OfficeTelNo": "4233 2222",
-      "HomeTelNo": "",
-      "MobileTelNo": "",
-      "Fax": "4233 3333",
-      "Email": "",
-      "ContactPerson": "Techi",
-      "OGID": 30,
-      "OG": "Datum Pest Control Sdn. Bhd.",
-      "InputDate": "2013-03-15T14:51:16.0830000+08:00",
-      "UpdateDate": "1900-01-01T00:00:00.0000000+08:00",
-      "CurrencyCode": "MYR",
-      "Currency": "Malaysian Ringgit",
-      "Technician": "Mohd Ali Bin Ahmad",
-      "Info": "3, Jalan Taman Taman 4, \r\nKepong Industri Park, \r\nKepong, \r\n Selangor.\r\n\r\nAttn: Mr. Techi\r\nOffice: 4233 2222\r\nFax: 4233 3333\r\n",
-      "Info2": "3, Jalan Taman Taman 4, \r\nKepong Industri Park, \r\nKepong, \r\n Selangor.\r\n\r\nAttn: Mr. Techi\r\nOffice: 4233 2222\r\nFax: 4233 3333\r\n",
-      "Posted": true,
-      "InternalNotes": "",
-      "Instructions": "",
-      "Report": "",
-      "AMLID": 43,
-      "CMFID": 7,
-      "CLDID": 10,
-      "StartDate": "2013-03-15T00:00:00.0000000+08:00",
-      "EndDate": "2013-03-15T00:00:00.0000000+08:00",
-      "Duration": 0,
-      "Billable": false,
-      "NatureOfService": "Routine Inspection/Checking",
-      "WorkType": ""
-    },
-    ...
-  ],
-  "ok": true,
-  "source": {
-    "app": "MFSSelfHost",
-    "version": "1.1.3.0"
-  }
-}
 ```
+
+[Sample /Services Successful Response data](/sampledata/GET_Services.json)
 
 __Unauthorized (401)__
 ```http
@@ -723,217 +520,9 @@ __Success (200 OK)__
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{
-  "data": {
-    "R1": "No. 621, Block B, Dataran Mentari,",
-    "R2": "2, Jalan PJS 8/5, Bandar Sunway,",
-    "R3": "46150 Selangor, Malaysia.",
-    "TaxNo": "aaaa",
-    "Email": "info@datumpestcontrol.com",
-    "Website": "www.datumpestcontrol.com",
-    "OGID": "Datum Pest Control Sdn. Bhd.",
-    "CompReg": "556677-D",
-    "Phone": "03-5902 9988",
-    "Fax": "03-5902 8888",
-    "BaseCC": "MYR",
-    "CCDesc": "Malaysian Ringgit",
-    "CustName": "TechTech Sdn Bhd",
-    "CustAddress": "3, Jalan Taman Taman 4, \r\nKampung Atas Tol, \r\nKuala Terengganu, \r\n21070 Terengganu \r\nMALAYSIA",
-    "CustContact": "Techi",
-    "State": "Terengganu",
-    "Country": "MALAYSIA",
-    "BillCustAddress": "3, Jalan Taman Taman 4, \r\nKampung Atas Tol, \r\nKuala Terengganu, \r\n21070 Terengganu \r\nMALAYSIA",
-    "Info": "3, Jalan Taman Taman 4, \r\nKampung Atas Tol, \r\nKuala Terengganu, \r\n21070 Terengganu \r\nMALAYSIA\r\n\r\nAttn: Mr. Techi\r\nOffice: 4233 2222\r\nFax: 4233 3333\r\nEmail: techtech@example.com,tech2@example.com\r\n",
-    "DocNo": "16060014",
-    "Tech": "Mohd Ali Bin Ahmad",
-    "Team": "JML1234",
-    "TechLicense": "XXX1XZXV",
-    "WorkType": "Day Work",
-    "StartDT": "2016-06-23T16:21:00.0000000+08:00",
-    "EndDT": "2016-06-23T16:25:00.0000000+08:00",
-    "DocDT": "2016-06-23T00:00:00.0000000+08:00",
-    "DocDTshort": "23/06/2016",
-    "NatureOfService": "Routine Inspection/Checking",
-    "Freq": "Monthly",
-    "PaymentMode": "Payment in Cash",
-    "PaymentAmt": "MYR 20.00",
-    "CustRef": "",
-    "Rating": "Good",
-    "Feedback": "good feedback",
-    "Remarks": "my report",
-    "Instructions": "Please don't enter the room without permission",
-    "Qty": 1,
-    "UOM": "",
-    "StartGeo": "3.12343311309814,101.72029876709",
-    "StartGeoLink": "https://maps.google.com/maps?q=3.12343311309814,101.72029876709&ll=3.12343311309814,101.72029876709&z=16",
-    "EndGeo": "3.12354898452759,101.72029876709",
-    "EndGeoLink": "https://maps.google.com/maps?q=3.12354898452759,101.72029876709&ll=3.12354898452759,101.72029876709&z=16",
-    "TechList": [
-      {
-        "Name": "Mohd Ali Bin Ahmad"
-      }
-    ],
-    "Targets": [
-      {
-        "Desc": "Applying dust to crevice and cracks",
-        "Code": "E0004",
-        "StockDesc": "B & G Perimeter Patrol System",
-        "Target": "Bees/Wasp/Hornets",
-        "TargetCode": "E",
-        "Tag": "",
-        "Status": "Completed",
-        "StatusId": 0,
-        "Qty": "1.00",
-        "LastQty": "100.000",
-        "FQty": 1,
-        "FLastQty": 100,
-        "UOM": "unit",
-        "Action": "Inspection/Checking on monitoring stations",
-        "Area": "All Area",
-        "Brand": "",
-        "Instructions": "Please don't enter the room without permission"
-      },
-      {
-        "Desc": "Fogging",
-        "Code": "E0005",
-        "StockDesc": "Buffer",
-        "Target": "Bees/Wasp/Hornets",
-        "TargetCode": "E",
-        "Tag": "",
-        "Status": "Completed",
-        "StatusId": 0,
-        "Qty": "1.00",
-        "LastQty": "100.000",
-        "FQty": 1,
-        "FLastQty": 100,
-        "UOM": "unit",
-        "Action": "Inspection/Checking on monitoring stations",
-        "Area": "All Area",
-        "Brand": "",
-        "Instructions": "Please don't enter the room without permission"
-      },
-      {
-        "Desc": "Cleaning cages and traps",
-        "Code": "C0007",
-        "StockDesc": "Chemicide 75+",
-        "Target": "Lizards",
-        "TargetCode": "Z",
-        "Tag": "",
-        "Status": "Completed",
-        "StatusId": 0,
-        "Qty": "1.00",
-        "LastQty": "0.000",
-        "FQty": 1,
-        "FLastQty": 0,
-        "UOM": "unit",
-        "Action": "Inspection/Checking on monitoring stations",
-        "Area": "All Area",
-        "Brand": "",
-        "Instructions": "Please don't enter the room without permission"
-      }
-    ],
-    "Items": [
-      {
-        "Desc": "Applying dust to crevice and cracks",
-        "Code": "E0004",
-        "StockDesc": "B & G Perimeter Patrol System",
-        "Target": "",
-        "TargetCode": "",
-        "Tag": "",
-        "Status": "",
-        "Qty": "2.00",
-        "LastQty": "100.000",
-        "FQty": 1,
-        "FLastQty": 100,
-        "Concentrated": "1.000",
-        "Diluted": "1.000",
-        "UOM": "unit",
-        "Action": "Inspection/Checking on monitoring stations",
-        "Area": "All Area",
-        "Brand": "",
-        "UOMDX": "unit",
-        "UOMDY": "unit",
-        "DX": "1",
-        "DY": "1",
-        "Toxic": ""
-      },
-      {
-        "Desc": "Fogging",
-        "Code": "E0005",
-        "StockDesc": "Buffer",
-        "Target": "",
-        "TargetCode": "",
-        "Tag": "",
-        "Status": "",
-        "Qty": "2.00",
-        "LastQty": "100.000",
-        "FQty": 1,
-        "FLastQty": 100,
-        "Concentrated": "1.000",
-        "Diluted": "1.000",
-        "UOM": "unit",
-        "Action": "Inspection/Checking on monitoring stations",
-        "Area": "All Area",
-        "Brand": "",
-        "UOMDX": "box",
-        "UOMDY": "box",
-        "DX": "1",
-        "DY": "1",
-        "Toxic": ""
-      },
-      {
-        "Desc": "Cleaning cages and traps",
-        "Code": "C0007",
-        "StockDesc": "Chemicide 75+",
-        "Target": "",
-        "TargetCode": "",
-        "Tag": "",
-        "Status": "",
-        "Qty": "2.00",
-        "LastQty": "-",
-        "FQty": 1,
-        "FLastQty": 0,
-        "Concentrated": "1.000",
-        "Diluted": "1.000",
-        "UOM": "ml",
-        "Action": "Inspection/Checking on monitoring stations",
-        "Area": "All Area",
-        "Brand": "",
-        "UOMDX": "ml",
-        "UOMDY": "ml",
-        "DX": "0",
-        "DY": "0",
-        "Toxic": ""
-      }
-    ],
-    "Images": [
-      {
-        "FName": "Photo-1.png",
-        "FNameNoExt": "Photo-1",
-        "Comments": "my mug",
-        "Lat": "0",
-        "Lng": "0",
-        "Aspect": "Landscape"
-      }
-    ],
-    "EquipStr": "",
-    "mfsapp": "MFSSelfHost",
-    "mfsver": "1.1.9.0",
-    "OrderNo": "B1212-003-0",
-    "PremiseType": "Others",
-    "Notes": "my report",
-    "Delivery": "",
-    "DeliveryNo": "",
-    "BillingMode": "Monthly",
-    "SetTitle": "Set #1"
-  },
-  "ok": true,
-  "source": {
-    "app": "MFSSelfHost",
-    "version": "1.1.9.0"
-  }
-}
 ```
+
+[Sample /Services/{id} Successful Response data](/sampledata/GET_Services_id.json)
 
 __Unauthorized (401)__
 ```http
@@ -1072,131 +661,9 @@ __Success (200 OK)__
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-{
-  "data": {
-    "CustId": 760,
-    "CustName": "TechTech Sdn Bhd",
-    "Address": "3, Jalan Taman Taman 4, \r\nKampung Atas Tol, \r\nKuala Terengganu, \r\n21070 Terengganu",
-    "MailTo": "techtech@example.com,tech2@example.com",
-    "AccMth": 2016005,
-    "AsAt": "May 2016",
-    "details": [
-      {
-        "intRow": 1,
-        "AccNo": "CUS11-00003",
-        "DunNo": "0",
-        "CustID": 760,
-        "AccName": "TechTech Sdn Bhd",
-        "Address": "3, Jalan Taman Taman 4, \r\nKampung Atas Tol, \r\nKuala Terengganu, \r\n21070 Terengganu",
-        "OPhone": "4233 2222",
-        "Fax": "4233 3333",
-        "Email": "techtech@example.com,tech2@example.com",
-        "Contact": "Techi",
-        "Salutation": "Mr.",
-        "MailTo": "techtech@example.com,tech2@example.com",
-        "AID": 2,
-        "AccID": 760,
-        "InstNo": 1,
-        "DocDT": "2011-06-14T00:00:00.0000000+08:00",
-        "XDocDT": "2011-06-14T00:00:00.0000000+08:00",
-        "OGID": 32,
-        "OG": "All",
-        "TrxType": "D",
-        "DocNo": 45,
-        "LAmt": 4500,
-        "OAmt": 4500,
-        "CC": "MYR",
-        "LXAmt": 4500,
-        "OXAmt": 4500,
-        "JOSAmt": 0,
-        "IsSettled": false,
-        "CCDesc": "Malaysian Ringgit",
-        "Desc1": "INV11-0001",
-        "SrcNo": "D45",
-        "InvNo": "INV11-0001",
-        "TermsMonth": 0,
-        "V_StartDT": 0,
-        "V_EndDT": 0,
-        "V_OPrice": 0,
-        "V_LPrice": 0,
-        "V_LastQty": 0,
-        "V_CurrentQty": 0,
-        "V_UsageQty": 0,
-        "SCC": "DLMSP1G$",
-        "InvAmt": 4500,
-        "InvGrossAmt": 4500,
-        "InvTaxAmt": 0,
-        "GLCode": "700",
-        "GLName": "Debtors Control  Account",
-        "CMFID": 4,
-        "UDNo": "B1103-001-0",
-        "TrxNo": "",
-        "PaymentMethod": ""
-      },
-      {
-        "intRow": 2,
-        "AccNo": "CUS11-00003",
-        "DunNo": "0",
-        "CustID": 760,
-        "AccName": "TechTech Sdn Bhd",
-        "Address": "3, Jalan Taman Taman 4, \r\nKampung Atas Tol, \r\nKuala Terengganu, \r\n21070 Terengganu",
-        "OPhone": "4233 2222",
-        "Fax": "4233 3333",
-        "Email": "techtech@example.com,tech2@example.com",
-        "Contact": "Techi",
-        "Salutation": "Mr.",
-        "MailTo": "techtech@example.com,tech2@example.com",
-        "AID": 9,
-        "AccID": 760,
-        "InstNo": 1,
-        "DocDT": "2016-05-06T00:00:00.0000000+08:00",
-        "XDocDT": "2016-05-06T00:00:00.0000000+08:00",
-        "PDDT": "2016-06-05T00:00:00.0000000+08:00",
-        "OGID": 30,
-        "OG": "All",
-        "TrxType": "D",
-        "DocNo": 462,
-        "LAmt": 4500,
-        "OAmt": 4500,
-        "CC": "MYR",
-        "Currency": "Malaysian Ringgit",
-        "LXAmt": 4500,
-        "OXAmt": 4500,
-        "JOSAmt": 0,
-        "IsSettled": false,
-        "CCDesc": "Malaysian Ringgit",
-        "Desc1": "INV16-0004",
-        "SrcNo": "D462",
-        "InvNo": "INV16-0004",
-        "TermsDesc": "30 Days Credit Term",
-        "TermsVal": "30",
-        "TermsMonth": 0,
-        "V_StartDT": 0,
-        "V_EndDT": 0,
-        "V_OPrice": 0,
-        "V_LPrice": 0,
-        "V_LastQty": 0,
-        "V_CurrentQty": 0,
-        "V_UsageQty": 0,
-        "SCC": "DLMSP1G$",
-        "InvAmt": 4500,
-        "InvGrossAmt": 4500,
-        "InvTaxAmt": 0,
-        "GLCode": "700",
-        "GLName": "Debtors Control  Account",
-        "CMFID": 0,
-        "TrxNo": "",
-        "PaymentMethod": ""
-      }
-    ]
-  },
-  "ok": true,
-  "source": {
-    "app": "MFSSelfHost",
-    "version": "1.1.3.0"
-  }
-}
 ```
+
+[Sample /Statement/{id} Successful Response data](/sampledata/GET_Statement_id.json)
 
 __Unauthorized (401)__
 ```http

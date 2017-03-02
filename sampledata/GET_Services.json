@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "ID": "118",
+      "TrxDT": "2013-03-15T00:00:00.0000000+08:00",
+      "SRNo": "13030030",
+      "CustID": "760",
+      "CustName": "TechTech Sdn Bhd",
+      "Add1": "3, Jalan Taman Taman 4,",
+      "Add2": "Kepong Industri Park,",
+      "Add3": "Kepong,",
+      "Add4": "",
+      "Add5": "",
+      "State": "Selangor",
+      "Zip": 0,
+      "Country": "",
+      "OfficeTelNo": "4233 2222",
+      "HomeTelNo": "",
+      "MobileTelNo": "",
+      "Fax": "4233 3333",
+      "Email": "",
+      "ContactPerson": "Techi",
+      "OGID": 30,
+      "OG": "Datum Pest Control Sdn. Bhd.",
+      "InputDate": "2013-03-15T14:51:16.0830000+08:00",
+      "UpdateDate": "1900-01-01T00:00:00.0000000+08:00",
+      "CurrencyCode": "MYR",
+      "Currency": "Malaysian Ringgit",
+      "Technician": "Mohd Ali Bin Ahmad",
+      "Info": "3, Jalan Taman Taman 4, \r\nKepong Industri Park, \r\nKepong, \r\n Selangor.\r\n\r\nAttn: Mr. Techi\r\nOffice: 4233 2222\r\nFax: 4233 3333\r\n",
+      "Info2": "3, Jalan Taman Taman 4, \r\nKepong Industri Park, \r\nKepong, \r\n Selangor.\r\n\r\nAttn: Mr. Techi\r\nOffice: 4233 2222\r\nFax: 4233 3333\r\n",
+      "Posted": true,
+      "InternalNotes": "",
+      "Instructions": "",
+      "Report": "",
+      "AMLID": 43,
+      "CMFID": 7,
+      "CLDID": 10,
+      "StartDate": "2013-03-15T00:00:00.0000000+08:00",
+      "EndDate": "2013-03-15T00:00:00.0000000+08:00",
+      "Duration": 0,
+      "Billable": false,
+      "NatureOfService": "Routine Inspection/Checking",
+      "WorkType": ""
+    },
+    ...
+  ],
+  "ok": true,
+  "source": {
+    "app": "MFSSelfHost",
+    "version": "1.1.3.0"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "data": [
+    {
+      "ID": 760,
+      "AccNo": "CUS11-00003",
+      "Status": "ACTIVE",
+      "Name": "TechTech Sdn Bhd",
+      "OfficeTelNo": "4233 2222",
+      "HomeTelNo": "",
+      "MobileTelNo": "",
+      "Fax": "4233 3333",
+      "Email": "techtech@example.com,tech2@example.com",
+      "ContactPerson": "Techi",
+      "Add1": "3, Jalan Taman Taman 4,",
+      "Add2": "Kampung Atas Tol,",
+      "Add3": "Kuala Terengganu,",
+      "Add4": "",
+      "Add5": "",
+      "ContactCategory": "Customer",
+      "G30": 301,
+      "ContactClass": "Company",
+      "G31": 311,
+      "OGID": 0,
+      "OG": "All",
+      "State": "Terengganu",
+      "Zip": "21070",
+      "Country": ""
+    },
+    {
+      "ID": 761,
+      "AccNo": "CUS11-00004",
+      "Status": "ACTIVE",
+      "Name": "PotBlack Sdn Bhd",
+      "OfficeTelNo": "5233 2626",
+      "HomeTelNo": "",
+      "MobileTelNo": "",
+      "Fax": "5233 3636",
+      "Email": "potblack1@example.com,contact1@example.com",
+      "ContactPerson": "Hunter",
+      "Add1": "455 Block A",
+      "Add2": "Make Believe Tower,",
+      "Add3": "Kuala Lumpur,",
+      "Add4": "",
+      "Add5": "",
+      "ContactCategory": "Customer",
+      "G30": 301,
+      "ContactClass": "Company",
+      "G31": 311,
+      "OGID": 0,
+      "OG": "All",
+      "State": "Kuala Lumpur",
+      "Zip": "51070",
+      "Country": ""
+    }
+  ],
+  "ok": true,
+  "source": {
+    "app": "MFSSelfHost",
+    "version": "1.1.3.0"
+  }
+}

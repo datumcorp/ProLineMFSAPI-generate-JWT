@@ -1,0 +1,49 @@
+{
+  "data": [
+    {
+      "ID": 2359,
+      "CLDID": 10,
+      "StartDate": "1899-12-30T00:00:00.0000000+08:00",
+      "Duration": 30,
+      "G207": 20701,
+      "NatureOfService": "Routine Inspection/Checking",
+      "G208": 20800,
+      "WorkType": "Day Work",
+      "OPV": 25,
+      "LPV": 25,
+      "Remarks": "Please don't enter the room without permission",
+      "ScheduleDate": "2016-09-14T09:00:00.0000000+08:00",
+      "Billable": true,
+      "COD": false,
+      "SRNo": "",
+      "InternalNotes": "generated",
+      "Confirmed": false,
+      "ContactPerson": "",
+      "EndDate": "1900-01-01T00:00:00.0000000+08:00",
+      "StatusID": 19001,
+      "Status": "To Do",
+      "Comment": "generated",
+      "OldCSSID": 0,
+      "NextCSSID": 0,
+      "CMFID": 7,
+      "TSTFID": 0,
+      "SCC": "",
+      "AMFID": 760,
+      "AMLID": 43,
+      "G180": 0,
+      "Team": "",
+      "SetTitle": "Set #1",
+      "CustID": "760",
+      "CustName": "TechTech Sdn Bhd",
+      "G200": 20001,
+      "OrderType": "General Pest",
+      "OrderNo": "B1212-003-0"
+    },
+    ...
+  ],
+  "ok": true,
+  "source": {
+    "app": "MFSSelfHost",
+    "version": "1.1.3.0"
+  }
+}
