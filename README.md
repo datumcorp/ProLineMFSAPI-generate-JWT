@@ -38,7 +38,7 @@ __Warning: These api calls are to be use for server to server only. Using the ca
 
 Get claim to be used in jwt generation
 
-* since MFSSelfHost 1.1.4
+* since MFSSelfHost 1.1.9
 
 #### Sample URL
 http://mfs.datumcorp.com:1313/api/Claim
@@ -89,7 +89,7 @@ Content-Type: application/json; charset=utf-8
 
 Get list of Customers
 
-* since MFSSelfHost 1.1.4
+* since MFSSelfHost 1.1.9
 
 #### Sample URL
 http://mfs.datumcorp.com:1313/api/Customers
@@ -171,7 +171,7 @@ Content-Type: application/json; charset=utf-8
 
 Get Customer info by customer id
 
-* since MFSSelfHost 1.1.4
+* since MFSSelfHost 1.1.9
 
 #### Sample URL
 http://mfs.datumcorp.com:1313/api/Customers/55
@@ -245,7 +245,7 @@ Content-Type: application/json; charset=utf-8
 
 Update Customers details
 
-* since MFSSelfHost 1.1.4
+* since MFSSelfHost 1.1.9
 
 #### Sample URL
 http://mfs.datumcorp.com:1313/api/Customers/55
@@ -645,7 +645,7 @@ Content-Type: application/json; charset=utf-8
 
 Get Statement (outstanding balance) by customer id
 
-* since MFSSelfHost 1.1.4
+* since MFSSelfHost 1.1.9
 
 #### Sample URL
 http://mfs.datumcorp.com:1313/api/Statement/55
@@ -722,7 +722,7 @@ Content-Type: application/json; charset=utf-8
 
 ### __GET /Invoice/{invno}__
 
-* since MFSSelfHost 1.1.4
+* since MFSSelfHost 1.1.9
 
 Get Invoice in pdf format
 
