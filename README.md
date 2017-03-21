@@ -502,6 +502,7 @@ Get Service Report by id or SRNo
 
 #### Sample URL
 http://mfs.datumcorp.com:1313/api/Services/55
+http://mfs.datumcorp.com:1313/api/Services/55?pdf=true (returns pdf)
 
 #### Headers
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
@@ -513,7 +514,7 @@ __Required__
 
 __Optional__
 
-none
+* pdf = true - returns the service report in pdf format
 
 #### Data Params
 __Required__
@@ -565,81 +566,6 @@ Content-Type: application/json; charset=utf-8
     "ErrorCode": 400
 }
 ```
----
-
-### __GET /sform/{sformid}__
-
-Get Service Report in pdf format
-
-* since MFSSelfHost 1.2.1
-
-#### Sample URL
-http://mfs.datumcorp.com:1313/sform/55
-
-#### Headers
-* jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
-
-#### Url Params
-__Required__
-
-* sformid = 55 [integer] - service report id
-
-#### Query
-* type = 0 [integer] - type of download, 0 = pdf, 1 = png eg. http://mfs.datumcorp.com:1313/sform/55?type=0
-
-__Optional__
-
-none
-
-#### Data Params
-__Required__
-
-none
-
-__Optional__
-
-none
-
-#### Request
-
-```http
-GET / HTTP/1.1
-Accept: application/json
-```
-
-#### Response
-
-__Success (200 OK)__
-```http
-HTTP/1.1 200 OK
-Content-Type: application/pdf
-
-```
-
-__Unauthorized (401)__
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-
-{
-    "ok": false,
-    "ErrorMsg":"Unauthorized. Check APIClientId and/or APIClientSecret",
-    "ErrorCode": 401
-}
-```
-
-__Bad Request (400)__
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json; charset=utf-8
-
-{
-    "ok": false,
-    "ErrorMsg":"Bad Request. Check supplied id and/or SRNo is valid",
-    "ErrorCode": 400
-}
-```
----
 
 ### __GET /Statement/{custid}__
 
