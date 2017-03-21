@@ -420,8 +420,8 @@ Get list of Service Reports
 * since MFSSelfHost 1.2.1
 
 #### Sample URL
-http://mfs.datumcorp.com:1313/api/Services
-http://mfs.datumcorp.com:1313/api/Services?custid=275
+* http://mfs.datumcorp.com:1313/api/Services
+* http://mfs.datumcorp.com:1313/api/Services?custid=275
 
 #### Headers
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
@@ -501,8 +501,8 @@ Get Service Report by id or SRNo
 * since MFSSelfHost 1.2.1
 
 #### Sample URL
-http://mfs.datumcorp.com:1313/api/Services/55
-http://mfs.datumcorp.com:1313/api/Services/55?pdf=true (returns pdf)
+* http://mfs.datumcorp.com:1313/api/Services/55
+* http://mfs.datumcorp.com:1313/api/Services/55?pdf=true (returns pdf)
 
 #### Headers
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
