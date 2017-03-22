@@ -571,6 +571,7 @@ Content-Type: application/json; charset=utf-8
 Get Service Report in pdf format
 
 * since MFSSelfHost 1.2.1
+* updated in MFSSelfHost 1.2.14
 
 #### Sample URL
 http://mfs.datumcorp.com:1313/sform/0?serviceid=55&type=0
