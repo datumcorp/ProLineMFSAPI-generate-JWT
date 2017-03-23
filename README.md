@@ -47,20 +47,20 @@ http://mfs.datumcorp.com:1313/api/Claim
 none
 
 #### Url Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 * format=json [string] - format of response, can be json,xml, jsv, csv
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
@@ -98,11 +98,11 @@ http://mfs.datumcorp.com:1313/api/Customers
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 * OGID = 0 [integer,default=0] - Org. Group id
 * limit = 10 [integer, default=0] - result limit per page
@@ -114,11 +114,11 @@ __Optional__
 * format=json [string] - format of response, can be json,xml, jsv, csv
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
@@ -180,20 +180,20 @@ http://mfs.datumcorp.com:1313/api/Customers/55
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
 custid = 55 [integer]
 
-__Optional__
+__*Optional*__
 
 * format=json [string] - format of response, can be json,xml, jsv, csv
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
@@ -254,20 +254,20 @@ http://mfs.datumcorp.com:1313/api/Customers/55
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
 * id = 55 [integer] - customer id
 
-__Optional__
+__*Optional*__
 
 * format=json [string] - format of response, can be json,xml, jsv, csv
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 Include Property only if changes are to be made:
 
@@ -348,11 +348,11 @@ http://mfs.datumcorp.com:1313/api/Schedules/760
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
 * custid = 120 [integer] - customer id
 
-__Optional__
+__*Optional*__
 
 * type = week [string,default="week"] - type of list to return
   * week - schedules from now to 1 week from now
@@ -361,11 +361,11 @@ __Optional__
 * format=json [string] - format of response, can be json,xml, jsv, csv
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
@@ -427,10 +427,10 @@ Get list of Service Reports
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
 
-__Optional__
+__*Optional*__
 
 * custid = 120 [integer] - customer id, filter by customer
 * OGID = 0 [integer,default=0] - Org. Group id
@@ -442,11 +442,11 @@ __Optional__
     * &sort=ContactCategory,-Name
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
@@ -508,20 +508,20 @@ Get Service Report by id or SRNo
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
 * serviceid = 55 [integer]
 
-__Optional__
+__*Optional*__
 
 * pdf = true - returns the service report in pdf format
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
@@ -580,23 +580,23 @@ http://mfs.datumcorp.com:1313/sform/0?serviceid=55&type=0
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
 
 #### Query
 * serviceid = 55 [integer] - service report id
 * type = 0 [integer] - type of download, 0 = pdf, 1 = png eg. http://mfs.datumcorp.com:1313/sform/55?type=0
 
-__Optional__
+__*Optional*__
 
 none
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
@@ -655,7 +655,7 @@ http://mfs.datumcorp.com:1313/api/Statement/55
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
 * custid = 55 [integer] - customer id
 
@@ -663,16 +663,16 @@ __Required__
 
 * asat = 2016001 [integer] - period date, format: yyyy0MM e.g. http://mfs.datumcorp.com:1313/api/Statement/55?asat=2016001
 
-__Optional__
+__*Optional*__
 
 none
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
@@ -734,20 +734,20 @@ http://mfs.datumcorp.com:1313/api/Invoice/INV16-0004
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
 * invno = INV16-0004 [string] - invoice document no.
 
-__Optional__
+__*Optional*__
 
 * docid = 0 [integer] - type of invoice to print. Use to override default value only. refer to admin to get possible values for this.
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
@@ -798,6 +798,7 @@ Content-Type: application/json; charset=utf-8
 Get List of Orders (active)
 
 * since MFSSelfHost 1.2.12
+* updated with custid filtering in MFSSelfHost 1.2.15
 
 #### Sample URL
 http://mfs.datumcorp.com:1313/api/Orders
@@ -806,18 +807,20 @@ http://mfs.datumcorp.com:1313/api/Orders
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
 
-__Optional__
+__*Optional*__
+
+* custid = 120 [integer] - customer id, filter by customer
 
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
@@ -878,19 +881,19 @@ http://mfs.datumcorp.com:1313/api/Orders
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
 * orderno = B1512-001-00 [string] - order document no.
 
-__Optional__
+__*Optional*__
 
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
@@ -950,17 +953,17 @@ http://mfs.datumcorp.com:1313/api/Orders/Expiring
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
 
 #### Url Params
-__Required__
+__*Required*__
 
-__Optional__
+__*Optional*__
 
 
 #### Data Params
-__Required__
+__*Required*__
 
 none
 
-__Optional__
+__*Optional*__
 
 none
 
