@@ -566,6 +566,7 @@ Content-Type: application/json; charset=utf-8
     "ErrorCode": 400
 }
 ```
+
 ### __GET /sform/0?serviceid={serviceid}__
 
 Get Service Report in pdf format
@@ -947,7 +948,8 @@ Get list of expiring orders
 * since MFSSelfHost 1.2.12
 
 #### Sample URL
-http://mfs.datumcorp.com:1313/api/Orders/Expiring
+* http://mfs.datumcorp.com:1313/api/Orders/Expiring
+* * http://mfs.datumcorp.com:1313/api/Orders/Expiring?custid=120
 
 #### Headers
 * jwt = "eyJhbGciOiJIUzUxMiI..*(see appendix for full sample)*" [string] (Refer to end of document for method to generate jwt)
@@ -957,6 +959,7 @@ __*Required*__
 
 __*Optional*__
 
+* custid = 120 [integer] - customer id, filter by customer
 
 #### Data Params
 __*Required*__

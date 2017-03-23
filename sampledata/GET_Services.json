@@ -1,10 +1,10 @@
 {
   "data": [
     {
-      "ID": "118",
+      "ID": 118,
       "TrxDT": "2013-03-15T00:00:00.0000000+08:00",
       "SRNo": "13030030",
-      "CustID": "760",
+      "CustID": 760,
       "CustName": "TechTech Sdn Bhd",
       "Add1": "3, Jalan Taman Taman 4,",
       "Add2": "Kepong Industri Park,",
@@ -41,7 +41,10 @@
       "Duration": 0,
       "Billable": false,
       "NatureOfService": "Routine Inspection/Checking",
-      "WorkType": ""
+      "WorkType": "",
+      "TechID": 183,
+      "TechAccNo": "TEC-123-123",
+      "pdf": true
     },
     ...
   ],
